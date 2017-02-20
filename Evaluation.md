@@ -13,7 +13,7 @@
 
 ###1. Pipeline description.
 
-The pipeline consists of 7 steps.
+The pipeline consists of 8 basic steps.
 
 ####Step 1. Input.
 
@@ -32,6 +32,8 @@ matplotlib.image used for this step.
 ####Step 3. Apply Gaussian smoothing.
 
 On this step we need to reduce noises by applying Gaussian blur with kernel size 5 (must be an odd number (3, 5, 7...)).
+
+Note: cv2.Canny() on Step 4 actually applies Gaussian smoothing internally, but it included here because it's possible to get a different result by applying further smoothing (and it's not a changeable parameter within cv2.Canny()).
 <pre><code>cv2.GaussianBlur(img, (kernel_size, kernel_size), 0)</code></pre>
 * img - input image
 
@@ -102,7 +104,11 @@ cv2.line(img, (right_btm_avg, y_btm), (right_top_avg, y_top), color, thickness)<
 Combine input image and image with detected lane lines:
 <pre><code>cv2.addWeighted(initial_img, alpha, img, beta, gamma)</code></pre>
 
-![alt text][image8]
+Test case #1:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3UnX4SPkwJY" frameborder="0" allowfullscreen></iframe>
+
+Test case #2:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2dAZRNz1--w" frameborder="0" allowfullscreen></iframe>
 
 ###2. Identify potential shortcomings with your current pipeline
 
@@ -119,4 +125,10 @@ A possible improvements:
 
 1. Unified requirements for input video (resolution, brightness, contrast etc.)
 
-2. Even if video coming with standart preset it is possible that it recorded during different light conditions. So, it needs for preprocessing depends on parameters of input frame (e.g. if input image is dark we need to up brightnrss level)
+2. Even if video coming with standard preset it is possible that it recorded during different light conditions. So, it requires preprocessing that depends on parameters of input frame (e.g. if input image is dark then we need to raise the level of brightness).
+
+3. In the bottom part of some frames (Optional challenge) possible to see part of the cowl that also could be the cause of False detections. So this part of image must be cropped.
+
+Optional challenge result (this case requires an additional preprocessing for stability improvement):
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dg7BHswQIw4" frameborder="0" allowfullscreen></iframe>
+
