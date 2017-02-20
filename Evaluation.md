@@ -106,6 +106,7 @@ Combine input image and image with detected lane lines:
 
 Test case #1:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3UnX4SPkwJY" frameborder="0" allowfullscreen></iframe>
+[![](https://img.youtube.com/vi/3UnX4SPkwJY/0.jpg)](https://youtu.be/3UnX4SPkwJY)
 
 Test case #2:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2dAZRNz1--w" frameborder="0" allowfullscreen></iframe>
@@ -116,7 +117,9 @@ Test case #2:
 OpenCV "resize" used for this step.
 <pre><code>thumbnail = cv2.resize(image, (width, height), interpolation = cv2.INTER_CUBIC)</code></pre>
 
-####Problem 2. Different light conditions are the cause of false lines detection. More preprocessing operations for input data is a required.
+####Problem 2. Different light conditions are the cause of false lines detection.
+
+More preprocessing operations for input data is a required.
 
 
 ###3. Suggest possible improvements to your pipeline
