@@ -88,6 +88,7 @@ We still have a bunch of lines coordinates, but we need to draw only 2 lines. Fo
 * top y-coordinate = 320
 * bottom y-coordinate = 0 
 * mid-x point = 485
+
 Knowing described coordinates it's easy to find average coordinates:
 <pre><code>left_btm_avg = int(sum(left_btm)/(len_lb))
 right_btm_avg = int(sum(right_btm)/(len_rb))
@@ -110,7 +111,7 @@ Test case #1:
 
 Test case #2:
 ####Finding Lane Lines on the Road (part 02)
-[![](https://img.youtube.com/vi/youtu.be/2dAZRNz1--w/0.jpg)](https://youtu.be/2dAZRNz1--w)
+[![](https://img.youtube.com/vi/2dAZRNz1--w/0.jpg)](https://youtu.be/2dAZRNz1--w)
 
 
 ###2. Identify potential shortcomings with your current pipeline
@@ -138,5 +139,5 @@ Optional challenge result (this case requires an additional preprocessing for st
 
 Test case #3:
 ####Finding Lane Lines on the Road (part 03)
-[![](https://img.youtube.com/vi/youtu.be/dg7BHswQIw4/0.jpg)](https://youtu.be/dg7BHswQIw4)
+[![](https://img.youtube.com/vi/dg7BHswQIw4/0.jpg)](https://youtu.be/dg7BHswQIw4)
 
