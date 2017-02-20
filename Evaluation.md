@@ -105,11 +105,13 @@ Combine input image and image with detected lane lines:
 <pre><code>cv2.addWeighted(initial_img, alpha, img, beta, gamma)</code></pre>
 
 Test case #1:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3UnX4SPkwJY" frameborder="0" allowfullscreen></iframe>
+####Finding Lane Lines on the Road (part 02)
 [![](https://img.youtube.com/vi/3UnX4SPkwJY/0.jpg)](https://youtu.be/3UnX4SPkwJY)
 
 Test case #2:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2dAZRNz1--w" frameborder="0" allowfullscreen></iframe>
+####Finding Lane Lines on the Road (part 02)
+[![](https://img.youtube.com/vi/youtu.be/2dAZRNz1--w/0.jpg)](https://youtu.be/2dAZRNz1--w)
+
 
 ###2. Identify potential shortcomings with your current pipeline
 
@@ -133,5 +135,8 @@ A possible improvements:
 3. In the bottom part of some frames (Optional challenge) possible to see part of the cowl that also could be the cause of False detections. So this part of image must be cropped.
 
 Optional challenge result (this case requires an additional preprocessing for stability improvement):
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dg7BHswQIw4" frameborder="0" allowfullscreen></iframe>
+
+Test case #3:
+####Finding Lane Lines on the Road (part 03)
+[![](https://img.youtube.com/vi/youtu.be/dg7BHswQIw4/0.jpg)](https://youtu.be/dg7BHswQIw4)
 
