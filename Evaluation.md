@@ -9,7 +9,7 @@
 
 The pipeline consisted of 7 steps:
 
-Step 1.
+####Step 1.
 
 Input. Provide image(frame) with width = 960px and length 540, RGB.
 
@@ -17,40 +17,31 @@ matplotlib.image is useful for this step.
 
 ![alt text][image1]
 
-Step 2.
+####Step 2.
 
-Step 3.
+####Step 3.
 
-Step 4.
+####Step 4.
 
-Step 5.
+####Step 5.
 
-Step 6.
+####Step 6.
 
-Step 7. 
-
-
-
-
-First, I converted the images to grayscale, then I .... 
+####Step 7. 
 
 In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
-
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
-
-![alt text][image1]
 
 
 ###2. Identify potential shortcomings with your current pipeline
 
-
-One potential shortcoming would be what would happen when ... 
-
-Another shortcoming could be ...
-
+####Problem 1. Different resolution of input video (e.g. Optional challenge) - ####solved
+OpenCV "resize" used for this step.
+<pre><code>thumbnail = cv2.resize(image, (width, height), interpolation = cv2.INTER_CUBIC)</code></pre>
 
 ###3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to ...
+A possible improvements:
 
-Another potential improvement could be to ...
+1. Unified requirements for input video (resolution, brightness, contrast etc.)
+
+2. Even if video coming with standart preset it is possible that it recorded during different light conditions. So, it needs for preprocessing depends on parameters of input frame (e.g. if input image is dark we need to up brightnrss level)
