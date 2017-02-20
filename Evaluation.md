@@ -1,22 +1,35 @@
 #**Finding Lane Lines on the Road** 
 
-
-12345
-
-
+[image1]: ./examples/o1_input.jpg "Input image"
 
 
 ### Reflection
 
 ###1. Pipeline description.
 
-The pipeline consisted of 5 steps:
+The pipeline consisted of 7 steps:
 
 Step 1.
+
+Input. Provide image(frame) with width = 960px and length 540, RGB.
+
+matplotlib.image is useful for this step.
+
+![alt text][image1]
+
 Step 2.
+
 Step 3.
+
 Step 4.
+
 Step 5.
+
+Step 6.
+
+Step 7. 
+
+
 
 
 First, I converted the images to grayscale, then I .... 
