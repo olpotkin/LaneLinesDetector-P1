@@ -107,10 +107,12 @@ Combine input image and image with detected lane lines:
 
 ####Test case #1:
 Finding Lane Lines on the Road (part 01)
+
 [![](https://img.youtube.com/vi/3UnX4SPkwJY/0.jpg)](https://youtu.be/3UnX4SPkwJY)
 
 ####Test case #2:
 Finding Lane Lines on the Road (part 02)
+
 [![](https://img.youtube.com/vi/2dAZRNz1--w/0.jpg)](https://youtu.be/2dAZRNz1--w)
 
 
@@ -139,5 +141,6 @@ Optional challenge result (this case requires an additional preprocessing for st
 
 ####Test case #3:
 Finding Lane Lines on the Road (part 03)
+
 [![](https://img.youtube.com/vi/dg7BHswQIw4/0.jpg)](https://youtu.be/dg7BHswQIw4)
 
