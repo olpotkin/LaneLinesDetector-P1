@@ -1,6 +1,6 @@
 #**Finding Lane Lines on the Road** 
 
-[image1]: ./examples/o1_input.jpg "Input image"
+[image1]: ./examples/01_input.jpg "Input image"
 
 
 ### Reflection
@@ -9,15 +9,16 @@
 
 The pipeline consisted of 7 steps:
 
-####Step 1.
+####Step 1. Input.
 
-Input. Provide image(frame) with width = 960px and length 540, RGB.
-
-matplotlib.image is useful for this step.
+Provide image(frame) with width = 960px and length 540, RGB.
+matplotlib.image used for this step.
 
 ![alt text][image1]
 
-####Step 2.
+####Step 2. Apply the Grayscale transform.
+<pre><code>cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)</code></pre>
+*img - input image
 
 ####Step 3.
 
@@ -34,9 +35,14 @@ In order to draw a single line on the left and right lanes, I modified the draw_
 
 ###2. Identify potential shortcomings with your current pipeline
 
-####Problem 1. Different resolution of input video (e.g. Optional challenge) - ####solved
+####Problem 1. Different resolution of input video (e.g. Optional challenge) - solved
 OpenCV "resize" used for this step.
 <pre><code>thumbnail = cv2.resize(image, (width, height), interpolation = cv2.INTER_CUBIC)</code></pre>
+
+####Problem 2. 
+
+####Problem 3.
+
 
 ###3. Suggest possible improvements to your pipeline
 
