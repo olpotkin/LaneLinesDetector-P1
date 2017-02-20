@@ -17,7 +17,7 @@ The pipeline consists of 7 steps.
 
 ####Step 1. Input.
 
-Provide image(frame) with width = 960px and length 540, RGB.
+Provide image(frame) with width = 960px and length = 540px, RGB.
 
 matplotlib.image used for this step.
 
@@ -39,11 +39,11 @@ On this step we need to reduce noises by applying Gaussian blur with kernel size
 
 ####Step 4. Apply the Canny transform.
 
-Canny transform uses to find the edges of the lane lines in an image of the road.
+Canny transform used to find the edges of the lane lines in an image of the road.
 <pre><code>cv2.Canny(img, low_threshold, high_threshold)</code></pre>
 For this step used parameters:
 * low_threshold = 110
-* low_threshold = 160
+* high_threshold = 160
 * img - input image
 
 ![alt text][image4]
@@ -60,8 +60,7 @@ From this step, pipeline considers pixels for color selection in the region wher
 In Hough space, we can represent "x vs. y" line as a point in "m vs. b" instead. The Hough Transform is just the conversion from image space to Hough space. So, the characterization of a line in image space will be a single point at the position (m, b) in Hough space.
 
 Tuned parameters for Hough transform:
-<pre><code>
-rho = 2                # distance resolution in pixels of the Hough grid
+<pre><code>rho = 2                # distance resolution in pixels of the Hough grid
 theta = np.pi/180      # angular resolution in radians of the Hough grid
 threshold = 40         # minimum number of votes (intersections in Hough grid cell)
 min_line_length = 10   # minimum number of pixels making up a line
@@ -69,16 +68,41 @@ max_line_gap = 10      # maximum gap in pixels between connectable line segments
 </code></pre>
 
 Run Hough transform:
-<pre><code>
-lines = cv2.HoughLinesP(img, rho, theta, threshold, np.array([]), minLineLength=min_line_len, maxLineGap=max_line_gap)
+<pre><code>lines = cv2.HoughLinesP(img, rho, theta, threshold, np.array([]), minLineLength=min_line_len, maxLineGap=max_line_gap)
 </code></pre>
 
 ![alt text][image6]
 
-####Step 7. 
+####Step 7. Apply extrapolation.
 
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
+In order to draw a single line on the left and right lanes, I modified the draw_lines() function by applying extrapolation approach.
 
+We have a region with known y parameters:
+* y_top = 320 (approximately)
+* y_bottom = 0
+Formula of x-extrapolation: x = x1 + ((y-y1)*(x2-x1))/(y2-y1)
+
+We still have a bunch of lines coordinates, but we need to draw only 2 lines. For this task we need to devide x-coordinates for 4 arrays (left_top, right_top, left_bottom, right_bottom). After tuning of parameters I've got follow values: 
+* top y-coordinate = 320
+* bottom y-coordinate = 0 
+* mid-x point = 485
+Knowing described coordinates it's easy to find average coordinates:
+<pre><code>left_btm_avg = int(sum(left_btm)/(len_lb))
+right_btm_avg = int(sum(right_btm)/(len_rb))
+left_top_avg = int(sum(left_top)/(len_lt))
+right_top_avg = int(sum(right_top)/(len_rt))</code></pre>
+
+Draw left and right lane lines:
+<pre><code>cv2.line(img, (left_btm_avg, y_btm), (left_top_avg, y_top), color, thickness)
+cv2.line(img, (right_btm_avg, y_btm), (right_top_avg, y_top), color, thickness)</code></pre>
+
+![alt text][image7]
+
+####Step 8. Get result image.
+Combine input image and image with detected lane lines:
+<pre><code>cv2.addWeighted(initial_img, alpha, img, beta, gamma)</code></pre>
+
+![alt text][image8]
 
 ###2. Identify potential shortcomings with your current pipeline
 
@@ -86,9 +110,7 @@ In order to draw a single line on the left and right lanes, I modified the draw_
 OpenCV "resize" used for this step.
 <pre><code>thumbnail = cv2.resize(image, (width, height), interpolation = cv2.INTER_CUBIC)</code></pre>
 
-####Problem 2. 
-
-####Problem 3.
+####Problem 2. Different light conditions are the cause of false lines detection. More preprocessing operations for input data is a required.
 
 
 ###3. Suggest possible improvements to your pipeline
