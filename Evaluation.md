@@ -105,12 +105,12 @@ cv2.line(img, (right_btm_avg, y_btm), (right_top_avg, y_top), color, thickness)<
 Combine input image and image with detected lane lines:
 <pre><code>cv2.addWeighted(initial_img, alpha, img, beta, gamma)</code></pre>
 
-Test case #1:
-####Finding Lane Lines on the Road (part 02)
+####Test case #1:
+Finding Lane Lines on the Road (part 01)
 [![](https://img.youtube.com/vi/3UnX4SPkwJY/0.jpg)](https://youtu.be/3UnX4SPkwJY)
 
-Test case #2:
-####Finding Lane Lines on the Road (part 02)
+####Test case #2:
+Finding Lane Lines on the Road (part 02)
 [![](https://img.youtube.com/vi/2dAZRNz1--w/0.jpg)](https://youtu.be/2dAZRNz1--w)
 
 
@@ -137,7 +137,7 @@ A possible improvements:
 
 Optional challenge result (this case requires an additional preprocessing for stability improvement):
 
-Test case #3:
-####Finding Lane Lines on the Road (part 03)
+####Test case #3:
+Finding Lane Lines on the Road (part 03)
 [![](https://img.youtube.com/vi/dg7BHswQIw4/0.jpg)](https://youtu.be/dg7BHswQIw4)
 
