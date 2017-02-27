@@ -31,7 +31,7 @@ matplotlib.image used for this step.
 
 ####Step 3. Apply Gaussian smoothing.
 
-On this step we need to reduce noises by applying Gaussian blur with kernel size 5 (must be an odd number (3, 5, 7...)).
+On this step we need to reduce noises by applying Gaussian blur with kernel size 3 (must be an odd number (3, 5, 7...)).
 
 Note: cv2.Canny() on Step 4 actually applies Gaussian smoothing internally, but it included here because it's possible to get a different result by applying further smoothing (and it's not a changeable parameter within cv2.Canny()).
 <pre><code>cv2.GaussianBlur(img, (kernel_size, kernel_size), 0)</code></pre>
@@ -44,8 +44,8 @@ Note: cv2.Canny() on Step 4 actually applies Gaussian smoothing internally, but 
 Canny transform used to find the edges of the lane lines in an image of the road.
 <pre><code>cv2.Canny(img, low_threshold, high_threshold)</code></pre>
 For this step used parameters:
-* low_threshold = 110
-* high_threshold = 160
+* low_threshold = 50
+* high_threshold = 150
 * img - input image
 
 ![alt text][image4]
@@ -64,9 +64,9 @@ In Hough space, we can represent "x vs. y" line as a point in "m vs. b" instead.
 Tuned parameters for Hough transform:
 <pre><code>rho = 2                # distance resolution in pixels of the Hough grid
 theta = np.pi/180      # angular resolution in radians of the Hough grid
-threshold = 40         # minimum number of votes (intersections in Hough grid cell)
-min_line_length = 10   # minimum number of pixels making up a line
-max_line_gap = 10      # maximum gap in pixels between connectable line segments
+threshold = 30         # minimum number of votes (intersections in Hough grid cell)
+min_line_length = 100  # minimum number of pixels making up a line
+max_line_gap = 160     # maximum gap in pixels between connectable line segments
 </code></pre>
 
 Run Hough transform:
