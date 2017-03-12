@@ -116,7 +116,7 @@ Finding Lane Lines on the Road (part 02)
 [![](https://img.youtube.com/vi/2dAZRNz1--w/0.jpg)](https://youtu.be/2dAZRNz1--w)
 
 
-###2. Identify potential shortcomings with your current pipeline
+###2. Identify potential shortcomings with the pipeline
 
 ####Problem 1. Different resolution of input video (e.g. Optional challenge) - solved
 OpenCV "resize" used for this step.
@@ -127,7 +127,7 @@ OpenCV "resize" used for this step.
 More preprocessing operations for input data is a required.
 
 
-###3. Suggest possible improvements to your pipeline
+###3. Possible improvements to the pipeline
 
 A possible improvements:
 
